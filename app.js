@@ -7,7 +7,19 @@ function adicionarAmigo() {
         alert("Por favor, insira um nome.")
     } else {
         amigos.push(nomeAmigo);
-        console.log(amigos);
-        document.getElementById("amigo").value = "";
+        atualizaListaAmigos();
+        limpaCampo("amigo");
     };
 };
+
+function atualizaListaAmigos() {
+    const listaExibida = document.getElementById("resultado");
+    listaExibida.innerHTML = "";
+    for(let i = 0; i < amigos.length; i++){
+        listaExibida.innerHTML += `<li>${amigos[i]}</li>`;
+    };
+};
+
+function limpaCampo(campoId) {
+    document.getElementById(campoId).value = "";
+}
